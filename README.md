@@ -50,11 +50,13 @@ draft in the embedded Tally form → Tally emails the file to Jordi → Jordi re
   - Review + 24h rush £328 → `https://buy.stripe.com/aFaaEYg8j6opacN6qW4AU01` (product `prod_UvaKdA4SjUFNRP`, price `price_1TvjB1Jd8PcMbTall4IqUsLG`)
   - Both are **live**, card payments, GBP, one-time, with after-payment redirect to `upload.html`.
 - ✅ **Site CTAs — done.** All review CTAs now point to the £249 link; the review card also links the £328 rush link.
-- ⏳ **Tally — still to do (you).** Create a form (fields **Name, Email, Competition, Deadline, File upload**),
-  turn on email notifications to `jordibiomr@gmail.com`, Share → **Embed**, and send me the embed link.
-  I'll paste it into the `iframe src` in `upload.html` (TODO comment marks the spot) and remove the interim
-  email-only fallback. **Until then**, `upload.html` tells paying customers to email their draft to you — so
-  the flow already works end-to-end (pay → redirect → email files).
+- ✅ **Tally — done.** Form `0Qgbe6` (fields: Full name, Email, Grant name/link, Project Files upload — 10 MB cap)
+  embedded in `upload.html` via `https://tally.so/embed/0Qgbe6` + Tally's auto-resize loader script.
+  Files >10 MB fall back to email (noted on the page). **Confirm Tally email notifications to
+  `jordibiomr@gmail.com` are ON** in the form's settings so you're alerted on each submission.
+
+**Full review flow is now LIVE:** pay (Stripe) → redirect to `upload.html` → submit draft in the Tally form →
+Tally emails you the file → you review + email the report back.
 
 > Note: the account was in LIVE mode (no test-mode connection available via this MCP), so these are real
 > links. To trial the flow, do one £249 self-purchase and refund it (Stripe keeps ~£3.95 in fees), or just
