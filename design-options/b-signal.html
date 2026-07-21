@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Granted Grant — Innovate UK & UKRI grant reviews & writing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0A0A0A;
+    --white:#FFFFFF;
+    --lime:#C6FF3C;
+    --grey:#8A8A8A;
+    --line:rgba(255,255,255,0.14);
+    --card:#131313;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Archivo',system-ui,-apple-system,Arial,sans-serif;
+    background:var(--black);
+    color:var(--white);
+    line-height:1.35;
+    font-weight:400;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  section{position:relative}
+
+  /* Type helpers */
+  .eyebrow{
+    font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--lime);
+  }
+  .display{
+    font-weight:900;letter-spacing:-0.035em;line-height:0.92;text-transform:uppercase;
+  }
+  .lime{color:var(--lime)}
+  .strike{position:relative;color:var(--grey);text-decoration:line-through;text-decoration-thickness:3px;font-weight:700}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-weight:800;font-size:15px;letter-spacing:-0.01em;
+    padding:16px 26px;border-radius:0;border:2px solid var(--white);
+    text-transform:uppercase;transition:transform .12s ease, background .15s ease, color .15s ease;
+    line-height:1;
+  }
+  .btn:hover{transform:translate(-2px,-2px)}
+  .btn-primary{background:var(--lime);color:var(--black);border-color:var(--lime)}
+  .btn-primary:hover{background:var(--white);border-color:var(--white)}
+  .btn-ghost{background:transparent;color:var(--white)}
+  .btn-ghost:hover{background:var(--white);color:var(--black)}
+  .btn-dark{background:var(--black);color:var(--white);border-color:var(--black)}
+  .btn-dark:hover{background:transparent;border-color:var(--black)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,0.9);backdrop-filter:blur(10px);border-bottom:2px solid var(--white)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .wordmark{font-weight:900;font-size:22px;letter-spacing:-0.04em;text-transform:uppercase}
+  .wordmark .dot{color:var(--lime)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.link{font-weight:600;font-size:14px;color:var(--grey);letter-spacing:-0.01em}
+  .nav-links a.link:hover{color:var(--white)}
+  .nav-cta{font-size:13px;padding:12px 18px}
+  .nav-toggle{display:none}
+
+  /* HERO */
+  .hero{padding:76px 0 70px;border-bottom:2px solid var(--white)}
+  .hero .eyebrow{display:block;margin-bottom:26px}
+  .hero h1{
+    font-size:clamp(46px,8.2vw,116px);margin-bottom:28px;
+  }
+  .hero .sub{max-width:620px;font-size:clamp(16px,2vw,20px);color:#D6D6D6;font-weight:500;margin-bottom:38px;line-height:1.45}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+
+  /* THE WIN */
+  .win{padding:80px 0;border-bottom:2px solid var(--white)}
+  .win .eyebrow{margin-bottom:14px}
+  .win h2{font-size:clamp(30px,4.5vw,58px);margin-bottom:48px}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--white)}
+  .stat{padding:40px 34px;border-right:2px solid var(--white)}
+  .stat:last-child{border-right:none}
+  .stat .label{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);margin-bottom:18px}
+  .stat .big{font-weight:900;letter-spacing:-0.05em;line-height:0.86;font-size:clamp(56px,8vw,96px)}
+  .stat .big.small{font-size:clamp(44px,6vw,74px)}
+  .stat .meta{margin-top:16px;font-size:15px;color:#CFCFCF;font-weight:500;line-height:1.4}
+  .stat.hl{background:var(--lime);color:var(--black)}
+  .stat.hl .label{color:#0A0A0A;opacity:.65}
+  .stat.hl .meta{color:#0A0A0A}
+  .stat.hl .strike{color:rgba(10,10,10,0.55)}
+  .pricetag{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+
+  /* Generic section head */
+  .sec{padding:80px 0;border-bottom:2px solid var(--white)}
+  .sec-head{max-width:760px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(30px,5vw,64px);margin-bottom:18px}
+  .sec-head p{font-size:clamp(16px,2vw,19px);color:#CFCFCF;font-weight:500;max-width:620px}
+
+  /* Product cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--white)}
+  .pcard{padding:40px 36px;border-right:2px solid var(--white);display:flex;flex-direction:column}
+  .pcard:last-child{border-right:none}
+  .badge{display:inline-block;background:var(--lime);color:var(--black);font-weight:800;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:6px 12px;margin-bottom:22px;align-self:flex-start}
+  .badge.ghost{background:transparent;color:var(--grey);border:2px solid var(--line)}
+  .pcard h3{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;line-height:1;margin-bottom:22px}
+  .pcard .price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .pcard .price .num{font-weight:900;font-size:clamp(46px,6vw,68px);letter-spacing:-0.04em;line-height:0.9}
+  .pcard .lead{font-weight:600;font-size:16px;color:#E4E4E4;margin-bottom:16px}
+  .pcard ul{list-style:none;margin-bottom:32px}
+  .pcard li{position:relative;padding-left:28px;font-size:15px;color:#CFCFCF;font-weight:500;line-height:1.4;margin-bottom:14px}
+  .pcard li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;background:var(--lime)}
+  .pcard .btn{margin-top:auto;align-self:flex-start}
+
+  /* Single big product (writers) */
+  .agent{border:2px solid var(--lime);padding:48px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .agent h3{font-size:clamp(30px,5vw,60px);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;line-height:0.9;margin-bottom:24px}
+  .agent p{font-size:16px;color:#DADADA;font-weight:500;line-height:1.5;margin-bottom:16px}
+  .agent .founder{color:var(--lime);font-weight:700}
+  .agent .right{border-left:2px solid var(--line);padding-left:40px}
+  .agent .right .from{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+  .agent .right .num{font-weight:900;font-size:clamp(40px,5vw,64px);letter-spacing:-0.04em;line-height:0.9;margin-bottom:8px}
+  .agent .right .peryr{color:var(--grey);font-weight:600;margin-bottom:28px}
+
+  /* Trust */
+  .trust{background:var(--lime);color:var(--black);border-bottom:2px solid var(--black)}
+  .trust .wrap{padding:70px 28px}
+  .trust h2{font-size:clamp(26px,4vw,46px);font-weight:900;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:44px;line-height:0.95}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .tpoint{padding:0 26px;border-left:2px solid rgba(10,10,10,0.25)}
+  .tpoint:first-child{padding-left:0;border-left:none}
+  .tnum{font-weight:900;font-size:34px;letter-spacing:-0.03em;margin-bottom:14px}
+  .tpoint p{font-weight:600;font-size:16px;line-height:1.4}
+
+  /* FAQ */
+  .faq-list{border-top:2px solid var(--white)}
+  .faq-item{border-bottom:2px solid var(--white)}
+  .faq-q{width:100%;background:transparent;border:none;color:var(--white);text-align:left;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:28px 0;font-family:inherit;font-weight:800;font-size:clamp(18px,2.4vw,26px);letter-spacing:-0.02em;line-height:1.15}
+  .faq-q:hover{color:var(--lime)}
+  .faq-icon{flex:0 0 auto;width:32px;height:32px;border:2px solid var(--white);position:relative;transition:background .15s,border-color .15s}
+  .faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--white);left:50%;top:50%;transform:translate(-50%,-50%);transition:opacity .15s,background .15s}
+  .faq-icon::before{width:14px;height:2px}
+  .faq-icon::after{width:2px;height:14px}
+  .faq-item[data-open="true"] .faq-icon{background:var(--lime);border-color:var(--lime)}
+  .faq-item[data-open="true"] .faq-icon::before{background:var(--black)}
+  .faq-item[data-open="true"] .faq-icon::after{opacity:0}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .faq-a-inner{padding:0 0 30px;font-size:17px;color:#CFCFCF;font-weight:500;line-height:1.55;max-width:820px}
+  .faq-item[data-open="true"] .faq-a{max-height:340px}
+
+  /* Final CTA */
+  .final{background:var(--white);color:var(--black);border-bottom:2px solid var(--black)}
+  .final .wrap{padding:90px 28px;text-align:center}
+  .final h2{font-size:clamp(40px,8vw,104px);font-weight:900;letter-spacing:-0.045em;text-transform:uppercase;line-height:0.88;margin-bottom:40px}
+  .final-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+  /* Footer */
+  footer{padding:56px 0 48px}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-bottom:34px;border-bottom:2px solid var(--line);margin-bottom:28px}
+  .foot-top .wordmark{font-size:30px}
+  .foot-contact{text-align:right;font-weight:600}
+  .foot-contact a{color:var(--lime)}
+  .foot-contact a:hover{text-decoration:underline}
+  .disclaimer{color:var(--grey);font-size:14px;font-weight:500;max-width:640px;line-height:1.5}
+  .copy{color:var(--grey);font-size:13px;font-weight:500;margin-top:22px}
+
+  @media(max-width:860px){
+    .stat-grid{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:2px solid var(--white)}
+    .stat:last-child{border-bottom:none}
+    .cards{grid-template-columns:1fr}
+    .pcard{border-right:none;border-bottom:2px solid var(--white)}
+    .pcard:last-child{border-bottom:none}
+    .agent{grid-template-columns:1fr;gap:28px}
+    .agent .right{border-left:none;border-top:2px solid var(--line);padding-left:0;padding-top:28px}
+    .trust-grid{grid-template-columns:1fr 1fr;gap:26px 20px}
+    .tpoint{padding:0;border-left:none}
+    .foot-contact{text-align:left}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 18px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;background:var(--black);border-bottom:2px solid var(--white);padding:24px 18px}
+    .nav-links.open a.link{color:var(--white);font-size:17px}
+    .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+    .nav-toggle span{width:26px;height:2px;background:var(--white);display:block}
+    .trust-grid{grid-template-columns:1fr}
+    .final .wrap,.trust .wrap{padding:64px 18px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="wordmark">Granted Grant<span class="dot">.</span></a>
+      <div class="nav-links" id="navlinks">
+        <a class="link" href="#for-companies">For companies</a>
+        <a class="link" href="#for-writers">For grant writers</a>
+        <a class="link" href="#how">How it works</a>
+        <a class="link" href="#faq">FAQ</a>
+        <a class="btn btn-primary nav-cta" href="invoice.html?service=review">Get a review — £249</a>
+      </div>
+      <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Innovate UK & UKRI specialists · Expert-led, AI-accelerated</span>
+      <h1 class="display">The <span class="lime">48-hour</span> review that wins Innovate UK grants.</h1>
+      <p class="sub">An expert pre-submission review that measurably improves your application — scored like a real assessor, back in 48 hours. 24-hour rush available.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="invoice.html?service=review">Get your review — £249</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WIN -->
+  <section class="win" id="how">
+    <div class="wrap">
+      <span class="eyebrow">The numbers behind the method</span>
+      <h2 class="display">Faster. Cheaper. Proven.</h2>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Speed</div>
+          <div class="big">48<span class="lime">H</span></div>
+          <div class="meta"><strong>24H rush</strong> available. Consultants take weeks — we hand it back in days.</div>
+        </div>
+        <div class="stat hl">
+          <div class="label">Cost — pre-submission review</div>
+          <div class="pricetag">
+            <div class="big">£249</div>
+            <div class="strike" style="font-size:34px">£600</div>
+          </div>
+          <div class="meta">Typical grant-writer review is ~£600. Full consultancies charge £3k–£15k.</div>
+        </div>
+        <div class="stat">
+          <div class="label">Track record</div>
+          <div class="big small">£3M<span class="lime">+</span></div>
+          <div class="meta"><strong>&gt;50% success rate</strong> vs the typical 5–25% Innovate UK scheme average.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR COMPANIES -->
+  <section class="sec" id="for-companies">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display">For startups & small companies</h2>
+        <p>Applying to Innovate UK or UKRI? Start with a review — upgrade to full writing when you want us to do it all.</p>
+      </div>
+      <div class="cards">
+        <div class="pcard">
+          <span class="badge">Best seller</span>
+          <h3>Pre-submission Expert Review</h3>
+          <div class="price">
+            <span class="num">£249</span>
+            <span class="strike" style="font-size:30px">£600</span>
+          </div>
+          <ul>
+            <li>48-hour turnaround (24-hour rush available for an added fee)</li>
+            <li>Extensive, assessor-style review scored against each Innovate UK question</li>
+            <li>Projected fundability score + a prioritised list of the specific fixes that raise it</li>
+            <li>Reassessment after your revision — £149</li>
+          </ul>
+          <a class="btn btn-primary" href="invoice.html?service=review">Get your review — £249</a>
+        </div>
+        <div class="pcard">
+          <span class="badge ghost">Done-for-you</span>
+          <h3>Full Application — Done-For-You</h3>
+          <div class="price">
+            <span class="num">£1,500–£2,500</span>
+          </div>
+          <p class="lead">We build the whole bid with you. Includes:</p>
+          <ul>
+            <li>Drafting of every section, within the word limits</li>
+            <li>Creation of appendices</li>
+            <li>Drafting of figures</li>
+            <li>Financial & expenses spreadsheet</li>
+            <li>Financial modelling</li>
+            <li>Chart creation</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WRITERS -->
+  <section class="sec" id="for-writers">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display">For grant writers & larger organisations</h2>
+        <p>Write grants at volume? License the system behind the service.</p>
+      </div>
+      <div class="agent">
+        <div class="left">
+          <h3>The Agent</h3>
+          <p>Licensed access to the AI agent and skills documents behind our service — the same system that drafts sections, builds appendices and figures, and produces the financial spreadsheets, models and charts, kept current with live Innovate UK competitions.</p>
+          <p class="founder">Founding-partner rate £5,000/yr for the first cohort (£7,500/yr thereafter).</p>
+        </div>
+        <div class="right">
+          <div class="from">Licence</div>
+          <div class="num lime">£5,000</div>
+          <div class="peryr">/year — from</div>
+          <a class="btn btn-primary" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Enquire about the Agent</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="wrap">
+      <h2>Policy & trust</h2>
+      <div class="trust-grid">
+        <div class="tpoint">
+          <div class="tnum">01</div>
+          <p>You stay the author and own the content.</p>
+        </div>
+        <div class="tpoint">
+          <div class="tnum">02</div>
+          <p>UKRI AI-policy aligned — AI-assisted preparation with human involvement and disclosure; it doesn't affect your assessment.</p>
+        </div>
+        <div class="tpoint">
+          <div class="tnum">03</div>
+          <p>Your data stays private — processed on AI infrastructure with no-training terms.</p>
+        </div>
+        <div class="tpoint">
+          <div class="tnum">04</div>
+          <p>No fabricated claims — we sharpen the case for real work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display">FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Isn't this just an AI writing my application?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">No — it's an expert-led service that uses AI to move faster. A person who has raised £3M+ in UKRI funding shapes your bid; you remain the author and own the content, and any substantive AI use is disclosed exactly as UKRI's policy requires.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">What do I get from the £249 review?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">A written, assessor-style critique scored against each Innovate UK question, a projected fundability score, and a prioritised list of the specific fixes that raise it — in 48 hours (24-hour rush available). Reassessment after your revision is £149.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">How is this different from a grant consultancy?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Same iterative draft-and-review process, a fraction of the price, and our prices are published openly — which almost no consultancy does. We're also unusually strong on the costings and financial models that collaborative bids turn on.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Can you help with a rejected application?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes — resubmissions are often the highest-return work. Send the previous draft and any assessor feedback and we'll show you where the score was lost and how to recover it.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">What is 'the Agent'?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">The licensed system behind our service, for grant writers and teams who write at volume — it drafts sections, builds appendices and figures, and produces financial spreadsheets, models and charts, kept current with live Innovate UK competitions.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <h2>Ready before the deadline?</h2>
+      <div class="final-cta">
+        <a class="btn btn-primary" href="invoice.html?service=review">Get a review — £249</a>
+        <a class="btn btn-dark" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn btn-dark" href="mailto:jordibiomr@gmail.com">Email us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="wordmark">Granted Grant<span class="dot">.</span></div>
+      <div class="foot-contact">
+        <div><a href="mailto:jordibiomr@gmail.com">jordibiomr@gmail.com</a></div>
+        <div><a href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">calendly.com/jordiferrero</a></div>
+      </div>
+    </div>
+    <p class="disclaimer">Independent service by Jordi Ferrer Orri (self-employed) — not affiliated with UKRI or Innovate UK.</p>
+    <p class="copy">© 2026 Granted Grant.</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var open = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', open ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+  // Mobile nav
+  var toggle = document.getElementById('navtoggle');
+  var links = document.getElementById('navlinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+</script>
+</body>
+</html>
