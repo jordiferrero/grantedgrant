@@ -102,26 +102,20 @@
 
     <div class="step-label"><b>Upload</b> / your application draft</div>
 
-    <!-- ============================================================
-         TODO: paste your Tally (or Fillout) upload-form embed URL in
-         the iframe src below. In Tally: create a form with fields
-         Name, Email, Competition, Deadline, and a File Upload field;
-         turn on email notifications to jordibiomr@gmail.com; then
-         Share → Embed and copy the embed link (https://tally.so/embed/XXText).
-         Until then, the email fallback below is shown.
-         ============================================================ -->
     <div class="embed">
-      <!-- <iframe src="https://tally.so/embed/XXXXXX?hideTitle=1&transparentBackground=1" title="Upload your draft"></iframe> -->
-      <div class="fallback" id="fallback">
-        <p style="margin-bottom:10px"><b>Send your draft by email</b></p>
-        <p>Email your application to
-        <a href="mailto:jordibiomr@gmail.com?subject=Granted%20Grant%20review%20%E2%80%94%20my%20draft" style="color:var(--blue);font-weight:600">jordibiomr@gmail.com</a>,
-        quoting the order reference on your Stripe receipt. Word or PDF is fine — I'll confirm receipt and get started right away.</p>
-      </div>
+      <iframe data-tally-src="https://tally.so/embed/0Qgbe6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Upload your draft"></iframe>
+      <noscript>
+        <div class="fallback">
+          <p style="margin-bottom:10px"><b>Send your draft by email</b></p>
+          <p>Email your application to
+          <a href="mailto:jordibiomr@gmail.com?subject=Granted%20Grant%20review%20%E2%80%94%20my%20draft" style="color:var(--blue);font-weight:600">jordibiomr@gmail.com</a>,
+          quoting the order reference on your Stripe receipt.</p>
+        </div>
+      </noscript>
     </div>
 
     <div class="altbox">
-      Prefer email? Send your files to <a href="mailto:jordibiomr@gmail.com?subject=Granted%20Grant%20review%20%E2%80%94%20my%20draft">jordibiomr@gmail.com</a>, quoting the order reference on your Stripe receipt. Word or PDF is fine.
+      Files over 10 MB, or prefer email? Send them to <a href="mailto:jordibiomr@gmail.com?subject=Granted%20Grant%20review%20%E2%80%94%20my%20draft">jordibiomr@gmail.com</a>, quoting the order reference on your Stripe receipt. Word or PDF is fine.
     </div>
 
     <div class="next">
@@ -134,6 +128,11 @@
 <footer>
   <div class="wrap">© 2026 Granted Grant · Independent service by Jordi Ferrer Orri — not affiliated with UKRI or Innovate UK.</div>
 </footer>
+
+<script>
+  // Tally embed loader (auto-sizes the iframe height)
+  var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)v();else if(null==d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s)}
+</script>
 
 </body>
 </html>
