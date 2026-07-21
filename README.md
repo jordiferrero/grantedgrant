@@ -41,10 +41,10 @@ secret — the thing GitHub Pages/Actions can't do — you need a small serverle
 details in an environment secret, builds the invoice, and emails it to you. Ask and it can be added
 without changing hosts for the rest of the site.
 
-## Still to do
+## Notes
 
-- Add a **real, attributable testimonial** in `index.html` (placeholder only — never fabricate).
-- Confirm **VAT status** (invoice states "not VAT registered").
+- No testimonials section yet (removed until real, attributable quotes exist — never fabricate).
+- **Not VAT registered** — the invoice tool correctly states "no VAT is charged." Revisit if/when registered.
 
 ## Vanity URL / custom domain
 
