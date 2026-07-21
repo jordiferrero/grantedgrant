@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request your invoice — Granted Grant</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#141461;--navy-deep:#0E0E45;--paper:#F4F0E7;--paper-pure:#FBF9F3;
+  --gold:#C9A24B;--gold-bright:#E4C070;--line:rgba(20,20,97,.16);
+  --ff-display:"Fraunces",Georgia,serif;--ff-ui:"Archivo",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff-ui);background:var(--paper);color:var(--navy);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mark{font-family:var(--ff-display);font-weight:600;letter-spacing:.04em}
+.mark .dot{color:var(--gold)}
+.bar{background:var(--navy);color:var(--paper);padding:16px 0}
+.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.bar .mark{color:var(--paper);font-size:1.2rem}
+.bar a.back{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.82;text-decoration:none}
+.bar a.back:hover{opacity:1}
+.shell{max-width:760px;margin:0 auto;padding:clamp(28px,5vw,56px) 24px 80px}
+.lead-h{font-family:var(--ff-display);font-weight:500;font-size:clamp(1.9rem,4.5vw,2.9rem);letter-spacing:-.01em;line-height:1.03;margin-bottom:12px}
+.lead-h em{font-style:italic;color:var(--gold)}
+.lead-p{font-size:1rem;opacity:.78;max-width:56ch;margin-bottom:34px}
+.card{background:var(--paper-pure);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,3.5vw,36px)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.7}
+input,select,textarea{font-family:var(--ff-ui);font-size:.95rem;color:var(--navy);background:var(--paper);
+  border:1.5px solid var(--line);border-radius:9px;padding:.72em .85em;width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy)}
+textarea{resize:vertical;min-height:88px}
+.btn{font-family:var(--ff-ui);font-weight:600;font-size:.92rem;letter-spacing:.02em;display:inline-flex;align-items:center;gap:.5em;
+  padding:.95em 1.6em;border-radius:999px;border:1.5px solid var(--navy);cursor:pointer;transition:all .3s;background:var(--navy);color:var(--paper)}
+.btn:hover{background:var(--navy-deep)}
+.btn--gold{background:var(--gold);border-color:var(--gold);color:var(--navy-deep)}
+.btn--gold:hover{background:var(--gold-bright);border-color:var(--gold-bright)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;align-items:center}
+.summary{font-size:.85rem;opacity:.7}
+.summary b{font-weight:600;opacity:1}
+.trust-line{font-size:.8rem;opacity:.62;margin-top:22px;line-height:1.55;display:flex;gap:9px;align-items:flex-start}
+.trust-line .k{color:var(--gold);flex-shrink:0}
+.err{display:none;font-size:.85rem;color:#9a2b2b;background:rgba(154,43,43,.08);border:1px solid rgba(154,43,43,.35);border-radius:9px;padding:12px 14px;margin-top:18px;line-height:1.5}
+.err.show{display:block}
+.err a{color:#9a2b2b;font-weight:600}
+/* success panel */
+.done{display:none;text-align:center;padding:clamp(30px,6vw,64px) 20px}
+.done.show{display:block}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 22px}
+.done h2{font-family:var(--ff-display);font-weight:500;font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:14px;letter-spacing:-.01em}
+.done p{font-size:1rem;opacity:.78;max-width:46ch;margin:0 auto 26px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bar-in">
+    <a href="index.html" class="mark">GRANTED&nbsp;GRANT<span class="dot">.</span></a>
+    <a href="index.html" class="back">← Back to site</a>
+  </div>
+</div>
+
+<div class="shell">
+  <div id="formView">
+    <h1 class="lead-h">Request your <em>invoice</em>.</h1>
+    <p class="lead-p">Tell me which service you'd like and a few details. I'll email you an invoice with payment details, usually the same day. Work begins as soon as payment is received — no charge until you've had the invoice and are happy to go ahead.</p>
+
+    <div class="card">
+      <form id="reqForm">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="service">Service</label>
+            <select id="service" name="Service">
+              <option value="Expert application review — £249">Expert application review — £249</option>
+              <option value="Reassessment after revision — £149">Reassessment after revision — £149</option>
+              <option value="Done-for-you application — £1,950">Done-for-you application — £1,950</option>
+              <option value="Framework licence (annual)">Framework licence (annual)</option>
+              <option value="Not sure yet / other">Not sure yet / other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cname">Your name</label>
+            <input type="text" id="cname" name="Name" placeholder="Full name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="ccompany">Company / organisation <span style="text-transform:none;opacity:.6">(optional)</span></label>
+            <input type="text" id="ccompany" name="Company" placeholder="Company Ltd" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="cemail">Your email</label>
+            <input type="email" id="cemail" name="Email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="ccomp">Competition / deadline <span style="text-transform:none;opacity:.6">(optional)</span></label>
+            <input type="text" id="ccomp" name="Competition" placeholder="e.g. Smart Grants, closes Oct '26">
+          </div>
+          <div class="field full">
+            <label for="cmsg">Anything else? <span style="text-transform:none;opacity:.6">(optional)</span></label>
+            <textarea id="cmsg" name="Notes" placeholder="Your project in a sentence, or any questions."></textarea>
+          </div>
+        </div>
+
+        <!-- FormSubmit config (see README: one-time activation of jordibiomr@gmail.com) -->
+        <input type="hidden" name="_subject" value="New Granted Grant request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Thanks — I've received your request for Granted Grant and will email your invoice shortly, usually the same day. — Jordi">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="actions">
+          <button type="submit" class="btn btn--gold" id="send">Send request →</button>
+          <span class="summary" id="sending" style="display:none">Sending…</span>
+        </div>
+        <div class="err" id="errBox"></div>
+
+        <div class="trust-line"><span class="k">◆</span><span>Your details are used only to prepare and send your invoice. Payment is by bank transfer; you'll receive the account details on the invoice itself. Not affiliated with UKRI or Innovate UK.</span></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="done" id="doneView">
+    <div class="ok">✓</div>
+    <h2>Request received.</h2>
+    <p>Thanks — your invoice is on its way by email, usually the same day. If you don't see it within 24 hours, check your spam folder or email <a href="mailto:jordibiomr@gmail.com">jordibiomr@gmail.com</a>.</p>
+    <a class="btn" href="index.html">← Back to site</a>
+  </div>
+</div>
+
+<script>
+var $=function(id){return document.getElementById(id)};
+/* preselect from ?service= */
+(function(){
+  var map={review:0,reassessment:1,dfy:2,licence:3};
+  var p=new URLSearchParams(location.search).get("service");
+  if(p&&map[p]!=null)$("service").selectedIndex=map[p];
+})();
+
+var ENDPOINT="https://formsubmit.co/ajax/jordibiomr@gmail.com";
+
+function mailtoFallback(){
+  var body="Service: "+$("service").value
+    +"%0D%0AName: "+encodeURIComponent($("cname").value)
+    +"%0D%0ACompany: "+encodeURIComponent($("ccompany").value)
+    +"%0D%0AEmail: "+encodeURIComponent($("cemail").value)
+    +"%0D%0ACompetition: "+encodeURIComponent($("ccomp").value)
+    +"%0D%0ANotes: "+encodeURIComponent($("cmsg").value);
+  return "mailto:jordibiomr@gmail.com?subject="+encodeURIComponent("Granted Grant request")+"&body="+body;
+}
+
+$("reqForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var form=e.target;
+  if(!form.checkValidity()){form.reportValidity();return;}
+  $("send").disabled=true;$("sending").style.display="inline";$("errBox").classList.remove("show");
+
+  fetch(ENDPOINT,{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body:JSON.stringify({
+      Service:$("service").value,Name:$("cname").value,Company:$("ccompany").value,
+      Email:$("cemail").value,Competition:$("ccomp").value,Notes:$("cmsg").value,
+      _subject:"New Granted Grant request",_template:"table",_captcha:"false",
+      _autoresponse:"Thanks — I've received your request for Granted Grant and will email your invoice shortly, usually the same day. — Jordi"
+    })
+  }).then(function(r){return r.json();}).then(function(d){
+    if(d&&(d.success===true||d.success==="true")){
+      $("formView").style.display="none";$("doneView").classList.add("show");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }else{throw new Error(d&&d.message?d.message:"send failed");}
+  }).catch(function(){
+    $("send").disabled=false;$("sending").style.display="none";
+    $("errBox").innerHTML="Couldn't send automatically. Please <a href=\""+mailtoFallback()+"\">email your request directly</a> and I'll get straight back to you.";
+    $("errBox").classList.add("show");
+  });
+});
+</script>
+</body>
+</html>

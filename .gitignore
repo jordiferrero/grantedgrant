@@ -1,0 +1,7 @@
+.DS_Store
+preview*.png
+*-check.png
+*-preview.png
+
+# PRIVATE — never publish. Contains bank details + home address.
+admin/
