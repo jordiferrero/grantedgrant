@@ -4,7 +4,8 @@ Marketing site + service-request flow for **Granted Grant** (Jordi Ferrer Orri, 
 trader). Static HTML, no build step. **No bank details or home address are anywhere in this repo.**
 
 - `index.html` — landing page
-- `invoice.html` — public **request form** (emails the request to Jordi; shows no payment details)
+- `invoice.html` — public **request form** for full-application / Agent enquiries (emails the request to Jordi; shows no payment details)
+- `upload.html` — **post-payment page** for the £249 review: confidentiality note + Tally upload-form embed. Used as the Stripe Payment Link success URL.
 - `admin/invoice-maker.html` — **PRIVATE, local-only** invoice generator with bank details + address. Git-ignored via `admin/`. Never commit or publish it.
 - `.nojekyll` — serve files as-is
 
@@ -32,6 +33,33 @@ FormSubmit needs the destination email activated once:
 
 Optional: replace the email in `invoice.html` (`ENDPOINT`) with the FormSubmit random alias from the
 activation email, so the address isn't in the page source.
+
+## £249 review — Stripe payment + upload flow (no-code)
+
+Automates payment for the review; **fulfilment stays manual** (Jordi runs the review and emails it back).
+Payment (Stripe) and files (Tally) are separate steps stitched together — Stripe Checkout can't take
+file uploads. Nothing here needs a server; the site stays on GitHub Pages.
+
+**Flow:** Review CTA → Stripe Payment Link (card) → success redirect to `upload.html` → client uploads
+draft in the embedded Tally form → Tally emails the file to Jordi → Jordi reviews + emails report back.
+
+### Setup checklist (needs your Stripe + Tally logins)
+
+1. **Stripe** (as a sole trader — use the same bank account):
+   - Create two **Payment Links**: `Review — £249` and `Review + 24h rush — £328`.
+   - Optionally add custom fields (Competition, Deadline) and enable customer email + receipts.
+   - Set each link's **after-payment redirect** to `https://jordiferrero.github.io/grantedgrant/upload.html`.
+   - Copy the two Payment Link URLs.
+2. **Tally** (free): create a form with fields **Name, Email, Competition, Deadline, File upload**;
+   turn on **email notifications** to `jordibiomr@gmail.com`; Share → **Embed** → copy the embed link.
+   - Paste it into the `iframe src` in `upload.html` (see the TODO comment there).
+3. **Send me the two Stripe Payment Link URLs** and I'll swap every review CTA
+   (`invoice.html?service=review`) over to the £249 link and wire the rush link in. Until then the CTAs
+   keep pointing at the request form so nothing is broken.
+
+Confidentiality: Stripe never sees the files; the draft goes via Tally to Jordi's inbox (stated on
+`upload.html`, with a 14-day deletion note and an NDA-on-request offer). Full-application and Agent
+sales stay on the manual request-form / email / call route by design.
 
 ## Fully-automated version (optional, later)
 
