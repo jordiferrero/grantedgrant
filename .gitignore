@@ -5,6 +5,3 @@ preview*.png
 
 # PRIVATE — never publish. Contains bank details + home address.
 admin/
-
-# Design mockups: deploy the HTML for review, but keep the screenshots out
-design-options/*.png
