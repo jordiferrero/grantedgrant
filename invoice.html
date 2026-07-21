@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request your invoice — Granted Grant</title>
+<title>Request your invoice · Granted Grant</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,7 @@ textarea{resize:vertical;min-height:88px}
 <div class="shell">
   <div id="formView">
     <h1 class="lead-h">Request your <em>invoice</em>.</h1>
-    <p class="lead-p">Tell me which service you'd like and a few details. I'll email you an invoice with payment details, usually the same day. Work begins as soon as payment is received — no charge until you've had the invoice and are happy to go ahead.</p>
+    <p class="lead-p">Tell me which service you'd like and a few details. I'll email you an invoice with payment details, usually the same day. Work begins as soon as payment is received, no charge until you've had the invoice and are happy to go ahead.</p>
 
     <div class="card">
       <form id="reqForm">
@@ -78,9 +78,9 @@ textarea{resize:vertical;min-height:88px}
           <div class="field full">
             <label for="service">Service</label>
             <select id="service" name="Service">
-              <option value="Expert application review — £249">Expert application review — £249</option>
-              <option value="Reassessment after revision — £149">Reassessment after revision — £149</option>
-              <option value="Done-for-you application — £1,950">Done-for-you application — £1,950</option>
+              <option value="Expert application review, £249">Expert application review, £249</option>
+              <option value="Reassessment after revision, £149">Reassessment after revision, £149</option>
+              <option value="Done-for-you application, £1,950">Done-for-you application, £1,950</option>
               <option value="Framework licence (annual)">Framework licence (annual)</option>
               <option value="Not sure yet / other">Not sure yet / other</option>
             </select>
@@ -111,7 +111,7 @@ textarea{resize:vertical;min-height:88px}
         <input type="hidden" name="_subject" value="New Granted Grant request">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" value="Thanks — I've received your request for Granted Grant and will email your invoice shortly, usually the same day. — Jordi">
+        <input type="hidden" name="_autoresponse" value="Thanks, I've received your request for Granted Grant and will email your invoice shortly, usually the same day., Jordi">
         <input type="text" name="_honey" style="display:none">
 
         <div class="actions">
@@ -128,7 +128,7 @@ textarea{resize:vertical;min-height:88px}
   <div class="done" id="doneView">
     <div class="ok">✓</div>
     <h2>Request received.</h2>
-    <p>Thanks — your invoice is on its way by email, usually the same day. If you don't see it within 24 hours, check your spam folder or email <a href="mailto:jordibiomr@gmail.com">jordibiomr@gmail.com</a>.</p>
+    <p>Thanks, your invoice is on its way by email, usually the same day. If you don't see it within 24 hours, check your spam folder or email <a href="mailto:jordibiomr@gmail.com">jordibiomr@gmail.com</a>.</p>
     <a class="btn" href="index.html">← Back to site</a>
   </div>
 </div>
@@ -167,7 +167,7 @@ $("reqForm").addEventListener("submit",function(e){
       Service:$("service").value,Name:$("cname").value,Company:$("ccompany").value,
       Email:$("cemail").value,Competition:$("ccomp").value,Notes:$("cmsg").value,
       _subject:"New Granted Grant request",_template:"table",_captcha:"false",
-      _autoresponse:"Thanks — I've received your request for Granted Grant and will email your invoice shortly, usually the same day. — Jordi"
+      _autoresponse:"Thanks, I've received your request for Granted Grant and will email your invoice shortly, usually the same day., Jordi"
     })
   }).then(function(r){return r.json();}).then(function(d){
     if(d&&(d.success===true||d.success==="true")){

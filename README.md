@@ -1,7 +1,10 @@
 # Granted Grant — landing site
 
-Marketing site + service-request flow for **Granted Grant** (Jordi Ferrer Orri, self-employed sole
+Marketing site + service-request flow for **Granted Grant** (Jordi Ferrer, self-employed sole
 trader). Static HTML, no build step. **No bank details or home address are anywhere in this repo.**
+
+> Public copy shows the name **Jordi Ferrer** only (never the full legal name), uses no em-dashes,
+> and has been run through the humanizer pass. Keep new copy consistent with this.
 
 - `index.html` — landing page
 - `invoice.html` — public **request form** for full-application / Agent enquiries (emails the request to Jordi; shows no payment details)
