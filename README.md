@@ -43,19 +43,22 @@ file uploads. Nothing here needs a server; the site stays on GitHub Pages.
 **Flow:** Review CTA → Stripe Payment Link (card) → success redirect to `upload.html` → client uploads
 draft in the embedded Tally form → Tally emails the file to Jordi → Jordi reviews + emails report back.
 
-### Setup checklist (needs your Stripe + Tally logins)
+### Status
 
-1. **Stripe** (as a sole trader — use the same bank account):
-   - Create two **Payment Links**: `Review — £249` and `Review + 24h rush — £328`.
-   - Optionally add custom fields (Competition, Deadline) and enable customer email + receipts.
-   - Set each link's **after-payment redirect** to `https://jordiferrero.github.io/grantedgrant/upload.html`.
-   - Copy the two Payment Link URLs.
-2. **Tally** (free): create a form with fields **Name, Email, Competition, Deadline, File upload**;
-   turn on **email notifications** to `jordibiomr@gmail.com`; Share → **Embed** → copy the embed link.
-   - Paste it into the `iframe src` in `upload.html` (see the TODO comment there).
-3. **Send me the two Stripe Payment Link URLs** and I'll swap every review CTA
-   (`invoice.html?service=review`) over to the £249 link and wire the rush link in. Until then the CTAs
-   keep pointing at the request form so nothing is broken.
+- ✅ **Stripe (LIVE) — done.** Created via the Stripe MCP on account `acct_1Tvj6XJd8PcMbTal` (Jordi Ferrer):
+  - Review £249 → `https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00` (product `prod_UvaKGMIOdToxCN`, price `price_1TvjB0Jd8PcMbTalRuRb2QtO`)
+  - Review + 24h rush £328 → `https://buy.stripe.com/aFaaEYg8j6opacN6qW4AU01` (product `prod_UvaKdA4SjUFNRP`, price `price_1TvjB1Jd8PcMbTall4IqUsLG`)
+  - Both are **live**, card payments, GBP, one-time, with after-payment redirect to `upload.html`.
+- ✅ **Site CTAs — done.** All review CTAs now point to the £249 link; the review card also links the £328 rush link.
+- ⏳ **Tally — still to do (you).** Create a form (fields **Name, Email, Competition, Deadline, File upload**),
+  turn on email notifications to `jordibiomr@gmail.com`, Share → **Embed**, and send me the embed link.
+  I'll paste it into the `iframe src` in `upload.html` (TODO comment marks the spot) and remove the interim
+  email-only fallback. **Until then**, `upload.html` tells paying customers to email their draft to you — so
+  the flow already works end-to-end (pay → redirect → email files).
+
+> Note: the account was in LIVE mode (no test-mode connection available via this MCP), so these are real
+> links. To trial the flow, do one £249 self-purchase and refund it (Stripe keeps ~£3.95 in fees), or just
+> click through to confirm checkout + redirect without paying.
 
 Confidentiality: Stripe never sees the files; the draft goes via Tally to Jordi's inbox (stated on
 `upload.html`, with a 14-day deletion note and an NDA-on-request offer). Full-application and Agent
