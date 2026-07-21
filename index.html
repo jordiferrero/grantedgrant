@@ -19,6 +19,8 @@
     --grid:rgba(31,73,224,0.07);
     --line:rgba(20,20,20,0.16);
     --line-blue:rgba(31,73,224,0.35);
+    --flag:#D1453B;
+    --good:#1E9E6A;
     --sans:'Archivo',system-ui,-apple-system,sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
@@ -26,16 +28,12 @@
   html{scroll-behavior:smooth}
   body{
     font-family:var(--sans);
-    background:var(--paper);
+    background:#fff;
     color:var(--ink);
     line-height:1.55;
     font-weight:400;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
-    background-image:
-      linear-gradient(var(--grid) 1px,transparent 1px),
-      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-    background-size:32px 32px;
   }
   a{color:inherit;text-decoration:none}
   img{max-width:100%}
@@ -94,7 +92,7 @@
   /* ---- Nav ---- */
   header.nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(250,249,245,0.9);
+    background:rgba(255,255,255,0.92);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
@@ -120,7 +118,15 @@
   .nav-toggle{display:none}
 
   /* ---- Hero ---- */
-  .hero{padding:76px 0 64px;position:relative}
+  .hero{
+    padding:76px 0 64px;position:relative;
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:32px 32px;
+    border-bottom:1px solid var(--line);
+  }
   .hero .eyebrow{margin-bottom:22px}
   h1.hero-title{
     font-weight:800;
@@ -164,7 +170,7 @@
   /* ---- THE WIN / data panel ---- */
   .win{
     border:1.5px solid var(--ink);
-    background:var(--paper);
+    background:#fff;
     position:relative;
   }
   .win-head{
@@ -217,7 +223,7 @@
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .card{
     border:1.5px solid var(--ink);
-    background:var(--paper);
+    background:#fff;
     padding:28px;
     display:flex;flex-direction:column;
     position:relative;
@@ -323,6 +329,59 @@
   .disclaimer{font-size:13px;color:var(--ink-40);max-width:60ch;margin-bottom:18px;line-height:1.5}
   .copyright{font-family:var(--mono);font-size:12px;color:var(--ink-40);border-top:1px solid var(--line);padding-top:20px}
 
+  /* ---- Off-white band for the numbers section ---- */
+  #how{background:var(--paper);border-bottom:1px solid var(--line)}
+
+  /* ---- Sample review diagram ---- */
+  .sample-intro{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-40);margin:36px 0 14px}
+  .sample{border:1.5px solid var(--ink);background:#fff}
+  .sample-head{display:flex;justify-content:space-between;align-items:center;gap:10px 20px;flex-wrap:wrap;
+    padding:14px 22px;border-bottom:1.5px solid var(--ink);
+    font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-40)}
+  .sample-head b{color:var(--ink)}
+  .sample-score{color:var(--ink);display:flex;align-items:center;gap:8px}
+  .sample-score .down{color:var(--flag);text-decoration:line-through}
+  .sample-score .up{color:var(--good);font-weight:600}
+  .sample-body{display:grid;grid-template-columns:1.3fr 1fr}
+  .sample-doc{padding:24px 22px;border-right:1.5px solid var(--line)}
+  .sample-qlabel{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+  .sample-qlabel.muted{color:var(--ink-40)}
+  .sample-q{font-weight:700;font-size:16px;margin-bottom:18px;letter-spacing:-0.01em;line-height:1.3}
+  .draft{font-size:14.5px;color:var(--ink-70);line-height:1.75}
+  mark.bad{background:rgba(209,69,59,0.12);color:var(--ink);border-bottom:2px solid var(--flag);padding:0 1px;text-decoration:none}
+  .flagnote{margin-top:16px;border-left:2px solid var(--flag);padding:2px 0 2px 12px;font-size:13px;color:var(--ink-70);line-height:1.5}
+  .flagnote b{color:var(--flag);font-family:var(--mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;display:block;margin-bottom:3px}
+  .sample-side{padding:24px 22px;background:var(--blue-tint)}
+  .fix{background:#fff;border:1.5px solid var(--good);padding:14px;margin-bottom:20px}
+  .fix .tag{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--good);font-weight:600;margin-bottom:8px}
+  .fix p{font-size:13.5px;color:var(--ink);line-height:1.62}
+  .checks-title{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-40);margin-bottom:8px}
+  .checks{list-style:none}
+  .checks li{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink-70)}
+  .checks li:last-child{border-bottom:none}
+  .st{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:0.04em;padding:2px 7px;white-space:nowrap}
+  .st.pass{color:var(--good);background:rgba(30,158,106,0.14)}
+  .st.part{color:#8a6d00;background:rgba(184,134,11,0.16)}
+  .st.fail{color:var(--flag);background:rgba(209,69,59,0.12)}
+
+  /* ---- Deliverables icon grid ---- */
+  .grow{flex:1}
+  .deliver-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  .deliver{display:flex;gap:12px;align-items:flex-start}
+  .deliver .ic{flex-shrink:0;width:36px;height:36px;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center}
+  .deliver .ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .deliver .dt{font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.25}
+  .deliver .dd{font-size:12px;color:var(--ink-70);margin-top:2px;line-height:1.4}
+  .includes{border:1.5px solid var(--good);background:rgba(30,158,106,0.06);padding:12px 14px;margin-bottom:18px;font-size:13.5px;color:var(--ink);line-height:1.5}
+  .includes b{color:var(--good)}
+  .edge{font-family:var(--mono);font-size:12px;color:var(--ink-40);line-height:1.55;margin-bottom:22px}
+
+  @media(max-width:760px){
+    .sample-body{grid-template-columns:1fr}
+    .sample-doc{border-right:none;border-bottom:1.5px solid var(--line)}
+  }
+  @media(max-width:480px){.deliver-grid{grid-template-columns:1fr}}
+
   /* ---- Responsive ---- */
   @media(max-width:860px){
     .nav-links{
@@ -403,14 +462,14 @@
     <div class="win">
       <div class="win-head">
         <span>DATA PANEL / <b>GG-REVIEW-01</b></span>
-        <span>ISSUED <b>2026-07-20</b></span>
+        <span>SPEC / <b>INNOVATE UK &amp; UKRI</b></span>
       </div>
 
       <div class="win-grid">
         <div class="metric">
           <div class="metric-label"><span class="dot"></span>SPEED</div>
           <div class="metric-big">48<small>h</small></div>
-          <div class="metric-note"><b>24h</b> rush available. <span class="mono">// consultants: weeks</span></div>
+          <div class="metric-note"><b>24h</b> rush for +£79. <span class="mono">// consultants: weeks</span></div>
         </div>
         <div class="metric">
           <div class="metric-label"><span class="dot"></span>COST</div>
@@ -424,22 +483,35 @@
         </div>
       </div>
 
-      <div class="bars">
-        <div class="bars-title">COST COMPARISON — PRE-SUBMISSION REVIEW &amp; BEYOND (£)</div>
-        <div class="bar-row">
-          <span class="bar-name">Granted Grant</span>
-          <span class="bar-track"><span class="bar-fill us" style="width:3%"></span></span>
-          <span class="bar-val us">£249</span>
+    </div>
+
+    <div class="sample-intro">// What your £249 review looks like — one question, scored and fixed</div>
+    <div class="sample">
+      <div class="sample-head">
+        <span>SAMPLE REVIEW · <b>Q7 — Need &amp; challenge</b> · assessor-style</span>
+        <span class="sample-score">Projected score <span class="down">4.5</span> <span class="up">→ 8.0</span> / 10</span>
+      </div>
+      <div class="sample-body">
+        <div class="sample-doc">
+          <div class="sample-qlabel">The Innovate UK question</div>
+          <div class="sample-q">“What is the business need or technological challenge behind your innovation?”</div>
+          <div class="sample-qlabel muted">Your draft</div>
+          <p class="draft">Our project is <mark class="bad">critically important for the UK textile industry</mark>. There is a <mark class="bad">significant gap in the scientific understanding</mark> of coating durability, which our innovation will address.</p>
+          <div class="flagnote"><b>Importance 1.1 — asserted, not evidenced</b>No market size, no £ figure. Reviewers score down importance claims that rest on assertion alone.</div>
+          <div class="flagnote"><b>Importance 1.4 — not a real-world problem</b>“A gap in scientific understanding” is abstract. Name the consequence a customer actually feels.</div>
         </div>
-        <div class="bar-row">
-          <span class="bar-name">Typical writer</span>
-          <span class="bar-track"><span class="bar-fill" style="width:7%"></span></span>
-          <span class="bar-val">£600</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-name">Consultancy</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-val">£3k–£15k</span>
+        <div class="sample-side">
+          <div class="fix">
+            <div class="tag">✓ Suggested rewrite</div>
+            <p>“The UK technical-textiles sector is worth £9.4bn (2024). A manufacturer replacing a PFAS coating runs ~12 physical trials at ~£4k each before one passes — with no predictive tool to shortcut it. This is the ~£48k, 6-month problem [Company] removes, in line with the UK Clean Growth Strategy.”</p>
+          </div>
+          <div class="checks-title">Fundability checks</div>
+          <ul class="checks">
+            <li><span>Importance evidenced</span><span class="st fail">FAIL</span></li>
+            <li><span>Real-world problem</span><span class="st fail">FAIL</span></li>
+            <li><span>Aligned to funder priority</span><span class="st part">PARTIAL</span></li>
+            <li><span>Background sets up aims</span><span class="st pass">PASS</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -461,7 +533,7 @@
         <div class="price">£249 <span class="was strike">£600</span></div>
         <div class="price-note">// per application · reassessment £149</div>
         <ul>
-          <li><b>48-hour turnaround</b> (24-hour rush available for an added fee)</li>
+          <li><b>48-hour turnaround</b> — or a <b>24-hour rush for +£79</b></li>
           <li>Extensive, <b>assessor-style review</b> scored against each Innovate UK question</li>
           <li>Projected <b>fundability score</b> + a prioritised list of the specific fixes that raise it</li>
           <li>Reassessment after your revision — <b>£149</b></li>
@@ -474,15 +546,19 @@
         <h3>Full Application — Done-For-You</h3>
         <div class="price">£1,500<span style="font-size:0.6em;color:var(--ink-40)">–</span>£4,500</div>
         <div class="price-note">// priced by complexity</div>
-        <p class="lead">We build the whole bid with you. Includes:</p>
-        <ul>
-          <li>Drafting of every section, within the word limits</li>
-          <li>Creation of appendices</li>
-          <li>Drafting of figures</li>
-          <li>Financial &amp; expenses spreadsheet</li>
-          <li>Financial modelling</li>
-          <li>Chart creation</li>
-        </ul>
+        <div class="grow">
+          <p class="lead">We don't just write the words — we build the entire bid:</p>
+          <div class="deliver-grid">
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v4h4"/><path d="M9 13h6M9 17h6"/></svg></div><div><div class="dt">Every section</div><div class="dd">Drafted within the word limits</div></div></div>
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 7v9a4 4 0 0 0 8 0V6a2.5 2.5 0 0 0-5 0v9a1 1 0 0 0 2 0V7"/></svg></div><div><div class="dt">Appendices</div><div class="dd">Risk register, Gantt &amp; work plan</div></div></div>
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="9" r="1.4"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg></div><div><div class="dt">Figures</div><div class="dd">Drafted and captioned</div></div></div>
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16"/></svg></div><div><div class="dt">Costings spreadsheet</div><div class="dd">Full UKRI finance &amp; expenses</div></div></div>
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div><div class="dt">Financial modelling</div><div class="dd">ROI &amp; revenue projections</div></div></div>
+            <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="5"/><rect x="12" y="8" width="3" height="9"/><rect x="17" y="5" width="3" height="12"/></svg></div><div><div class="dt">Charts</div><div class="dd">Built from your numbers</div></div></div>
+          </div>
+          <div class="includes"><b>Includes a full pre-submission review</b> — the £249 service, built in before you submit.</div>
+          <p class="edge">// most consultancies stop at the written sections. We also deliver the appendices, figures and financials — where bids are usually won or lost.</p>
+        </div>
         <a class="btn" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Book a call</a>
       </div>
     </div>
@@ -504,8 +580,14 @@
         <div class="price-note">// annual licence</div>
       </div>
       <div class="agent-right">
-        <p>Licensed access to the AI agent and skills documents behind our service — the same system that drafts sections, builds appendices and figures, and produces the financial spreadsheets, models and charts, kept current with live Innovate UK competitions.</p>
-        <div class="founding">From £7,500/year, scaled by team size and usage. Annual licence includes onboarding and ongoing updates for live Innovate UK competitions.</div>
+        <p>License the AI agent and skills documents behind our service, kept current with live Innovate UK competitions. It produces the full package — not just prose:</p>
+        <div class="deliver-grid">
+          <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v4h4"/><path d="M9 13h6M9 17h6"/></svg></div><div><div class="dt">Full section drafts</div><div class="dd">Within IUK word limits</div></div></div>
+          <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 7v9a4 4 0 0 0 8 0V6a2.5 2.5 0 0 0-5 0v9a1 1 0 0 0 2 0V7"/></svg></div><div><div class="dt">Appendices</div><div class="dd">Risk register, Gantt, work plan</div></div></div>
+          <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="9" r="1.4"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg></div><div><div class="dt">Figures</div><div class="dd">Drafted and captioned</div></div></div>
+          <div class="deliver"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16"/></svg></div><div><div class="dt">Costings, models &amp; charts</div><div class="dd">UKRI finance, expenses, ROI</div></div></div>
+        </div>
+        <div class="founding">From £7,500/year, scaled by team size and usage. Includes onboarding and ongoing updates for live Innovate UK competitions.</div>
         <a class="btn btn--primary" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Enquire about the Agent</a>
       </div>
     </div>
@@ -549,7 +631,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span class="qn">Q2</span><span>What do I get from the £249 review?</span><span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">A written, assessor-style critique scored against each Innovate UK question, a projected fundability score, and a prioritised list of the specific fixes that raise it — in 48 hours (24-hour rush available). Reassessment after your revision is £149.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A written, assessor-style critique scored against each Innovate UK question, a projected fundability score, and a prioritised list of the specific fixes that raise it — in 48 hours, or a 24-hour rush for +£79. Reassessment after your revision is £149.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span class="qn">Q3</span><span>How is this different from a grant consultancy?</span><span class="plus">+</span></button>
