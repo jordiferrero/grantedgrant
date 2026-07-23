@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Granted Grant · Innovate UK &amp; UKRI grant reviews &amp; writing</title>
+
+  <!-- PostHog analytics (cookieless, no consent banner). Paste your Project API key below. -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    (function(){
+      var PH_KEY  = 'phc_tvvCZEsmVNJEni3EtEysZMboQTUAEnXvXFfy9bQwY2cr';            /* PostHog → Settings → Project API Key (starts with phc_) */
+      var PH_HOST = 'https://eu.i.posthog.com';     /* EU cloud (UK-friendly). Use us.i.posthog.com if you chose US. */
+      if (PH_KEY.indexOf('PASTE_') === -1) {
+        posthog.init(PH_KEY, {
+          api_host: PH_HOST,
+          persistence: 'memory',          /* cookieless — no consent banner required */
+          autocapture: true,              /* auto-captures clicks incl. the Stripe buttons */
+          capture_pageview: true,
+          capture_pageleave: true,
+          enable_heatmaps: true           /* set disable_session_recording:true to turn off replay */
+        });
+      }
+    })();
+  </script>
 <meta name="description" content="Expert-led, AI-accelerated grant-writing service specialising in Innovate UK &amp; UKRI applications. 48-hour pre-submission reviews from £249.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -444,7 +463,7 @@
       <a class="link" href="#for-writers">For grant writers</a>
       <a class="link" href="#how">How it works</a>
       <a class="link" href="#faq">FAQ</a>
-      <a class="btn btn--primary btn--sm" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00">Get a review, £249</a>
+      <a class="btn btn--primary btn--sm" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00" onclick="window.posthog&amp;&amp;posthog.capture('stripe_click',{product:'review-249'})">Get a review, £249</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
   </div>
@@ -457,7 +476,7 @@
     <h1 class="hero-title">The <em>48-hour review</em> that wins Innovate UK grants.</h1>
     <p class="hero-sub">An expert pre-submission review, scored like a real assessor and back in 48 hours. It shows you where your application loses points and how to win them back. 24-hour rush available.</p>
     <div class="hero-cta">
-      <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00">Get your review, £249</a>
+      <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00" onclick="window.posthog&amp;&amp;posthog.capture('stripe_click',{product:'review-249'})">Get your review, £249</a>
       <a class="btn" href="#how">See how it works</a>
     </div>
     <div class="hero-meta">
@@ -575,8 +594,8 @@
           <li>Reassessment after your revision, <b>£149</b></li>
           <li><b>Rejected before?</b> Add a re-score and realignment of your old bid to a new call</li>
         </ul>
-        <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00">Get your review, £249</a>
-        <a href="https://buy.stripe.com/aFaaEYg8j6opacN6qW4AU01" style="font-family:var(--mono);font-size:12.5px;color:var(--blue);margin-top:12px;display:inline-block">In a hurry? 24-hour rush, £328 →</a>
+        <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00" onclick="window.posthog&amp;&amp;posthog.capture('stripe_click',{product:'review-249'})">Get your review, £249</a>
+        <a href="https://buy.stripe.com/aFaaEYg8j6opacN6qW4AU01" onclick="window.posthog&amp;&amp;posthog.capture('stripe_click',{product:'review-rush-328'})" style="font-family:var(--mono);font-size:12.5px;color:var(--blue);margin-top:12px;display:inline-block">In a hurry? 24-hour rush, £328 →</a>
         <a href="mailto:jordibiomr@gmail.com?subject=Rejected%20application%3A%20re-score%20%26%20realign" style="font-family:var(--mono);font-size:12.5px;color:var(--ink-40);margin-top:8px;display:inline-block">Rejected or reusing an old application? Ask about a re-score →</a>
       </div>
 
@@ -696,7 +715,7 @@
       <h2>Ready before the deadline?</h2>
       <p>// EXPERT-LED, AI-ACCELERATED · INNOVATE UK &amp; UKRI</p>
       <div class="cta-row">
-        <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00">Get a review, £249</a>
+        <a class="btn btn--primary" href="https://buy.stripe.com/aFadRa3lxdQR4StaHc4AU00" onclick="window.posthog&amp;&amp;posthog.capture('stripe_click',{product:'review-249'})">Get a review, £249</a>
         <a class="btn" href="https://calendly.com/jordiferrero" target="_blank" rel="noopener">Book a call</a>
         <a class="btn" href="mailto:jordibiomr@gmail.com">Email us</a>
       </div>
